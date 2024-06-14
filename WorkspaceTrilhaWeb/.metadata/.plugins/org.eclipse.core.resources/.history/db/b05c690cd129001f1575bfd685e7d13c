@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang= "pt-br" >
+<head>
+<meta charset="UTF-8">
+<meta name= "description" content="Site da Coldogo Geladeiras">
+<meta name= "Keywords" content="Geladeiras, Frost-free, Refrigeração">
+<meta name="author" content= "Escola Sistêmica">
+<meta name= "viewport" content= "widht=device-widht, initial-scale=1.0">
+<title>Produtos</title>
+<link rel="stylesheet" type="text/css" href="/ProjetoTrilhaWeb9/css/site.css">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script src="../../js/site.js"></script>
+
+</head>
+<body>
+	<header>
+	</header>
+	<nav>
+	</nav>
+</section>
+<h2>Conheça nossos produtos!</h2>
+<table class="tabelaProdutos">
+	<thead>
+		<tr>
+			<th colspan ="5" class="tituloTabela">Geladeiras</th>
+		</tr>
+		<tr>
+			<th>Descrição</th>
+			<th>Portas</th>
+			<th>Frost Free</th>
+			<th>Água na porta</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Geladeira Eletrolux</th>
+			<th>01</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$1800,00</th>
+		</tr>
+		<tr>
+			<th>Geladeira Consul</th>
+			<th>01</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$2200,00</th>
+		</tr>
+		<tr>
+			<th>Geladeira Brastemp</th>
+			<th>01</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$2500,00</th>
+		</tr>
+		<tr>
+			<th>Geladeira Continental</th>
+			<th>02</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$3000,00</th>
+		</tr>
+		<tr>
+			<th>Geladeira Elgin</th>
+			<th>02</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$3200,00</th>
+		</tr>
+		<tr>
+			<th>Geladeira Philips</th>
+			<th>02</th>
+			<th>Sim</th>
+			<th>Não</th>
+			<th>R$3500,00</th>
+		</tr>
+	</tbody>
+</table>
+<table class="tabelaFreezers">
+	<thead>
+		<tr>
+			<th colspan ="4" class="tituloTabela2">Freezers</th>
+		</tr>
+		<tr>
+			<th>Descrição</th>
+			<th>Posição</th>
+			<th>Capacidade</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Freezer Souza</th>
+			<th>Horizontal</th>
+			<th>510L</th>
+			<th>R$2200,00</th>
+		</tr>
+		<tr>
+			<th>Freezer Amâncius</th>
+			<th>Horizontal</th>
+			<th>327L</th>
+			<th>R$1200,00</th>
+		</tr>
+		<tr>
+			<th>Freezer Diquel</th>
+			<th>Vertical</th>
+			<th>208L</th>
+			<th>R$2100,00</th>
+		</tr>
+		<tr>
+			<th>Freezer Razer</th>
+			<th>Vertical</th>
+			<th>142L</th>
+			<th>R$1450,00</th>
+		</tr>
+	</tbody>
+</table>
+<section>
+<footer></footer>
+</body>
+</html>

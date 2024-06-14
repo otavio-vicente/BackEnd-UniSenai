@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+body {
+	background-color: #F1F5F2;
+}
+
+fieldset {
+	background-color: #14281D;
+}

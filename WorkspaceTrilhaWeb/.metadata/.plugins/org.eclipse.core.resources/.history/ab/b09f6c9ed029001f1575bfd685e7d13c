@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coldigos Geladeiras</title>
+    <link href="./css/site.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <img src = "./imgs/logo.png" alt="Logo da Coldigo Geladeiras">
+        <h1>Coldigo Geladeiras</h1>
+    </header>
+    <nav>
+        <a href="index.html"><div class="opcao">Inicio</div></a>
+        <a href="pages/site/produtos.html"><div class="opcao">Produtos</div></a>
+        <a href="pages/site/faleconosco.html"><div class="opcao">Fale Conosco</div></a>
+    </nav>
+    <section>
+        <div id="topo">
+            <img src="imgs/geladeira1 (1).png" alt="Imagem de uma Geladeira" class="geladeira esquerda">
+            <div id="titulos">
+                <h2>Bem vindo ao site da <br>Coldigo Geladeiras!</h2>
+                <h3>A maior loja de Geladeiras e Freezers da região</h3>
+            </div>
+            <img src="imgs/geladeira2 (1).png" alt="Imagem de uma Geladeira" class="geladeira direita">
+        </div>
+        <p>
+            Coldigo Geladeiras é a maior empresa de revendas de geladeiras, refrigeradores, freezers
+            e afins da região. Desde 2007 gelando e congelando para seu prazer.
+        </p>
+        <p>
+            Sua geladeira estragou? Está precisando de uma maior ? Quer mais conforto e praticidade ? Já pensou 
+            em fazer um consorcio de geladeira?
+            Venha nos fazer uma visita ou entre em contato para mais informações.
+        </p>
+        
+    </section>
+    <footer>Copyright &copy; Escola Sistêmica 2019</footer>
+</body>
+</html>

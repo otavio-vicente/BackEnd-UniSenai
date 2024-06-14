@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coldigo Geladeiras</title>
+    <link href="../../css/site.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <img src = "../../imgs/logo.png" alt="Logo da Coldigo Geladeiras">
+        <h1>Coldigo Geladeiras</h1>
+    </header>
+    <nav>
+        <a href="../../index.html"><div class="opcao">Inicio</div></a>
+        <a href="../../pages/site/produtos.html"><div class="opcao">Produtos</div></a>
+        <a href="../../pages/site/faleconosco.html"><div class="opcao">Fale Conosco</div></a>
+    </nav>
+    <section>
+        <h2>Fale Conosco!</h2>
+        <p>Ficou alguma duvida ? Preencha este formulario e entraremos em contato!</p>
+        <form name="frmfaleconosco" method="post" action="#">
+            <fieldset class="faleConosco">
+                <legend>Dados Pessoais</legend>
+                <label for="nome">Nome: </label>
+                <input type="text" name="txtnome" id="nome">
+                <label for="fone">Telefone: </label>
+                <input type="text" name="txtfone" id="fone">
+                <label for="email">Email: </label>
+                <input type="email" name="txtemail" id="email">
+            </fieldset>
+
+            <fieldset class="faleConosco">
+                <legend class="tituloFormMotivo">Motivo do contato:</legend>
+                <label for="Motivo">Motivo: </label>
+                <select name="selmotivo" id="Motivo">
+                    <option value="">Escolha um motivo</option>
+                    <option value="RE">Reclamação</option>
+                    <option value="SU">Sugestão</option>
+                    <option value="PR">Informção sobre produto</option>
+                </select>
+                <label for="comentario">Comentário: </label>
+                <textarea name="txacomentario" id="comentario"></textarea>
+                <button type="reset">Limpar</button><button type="submit">Enviar</button>
+            </fieldset>
+
+        </form>
+    </section>
+    <footer>Copyright &copy; Escola Sistêmica 2019</footer>
+</body>
+</html>

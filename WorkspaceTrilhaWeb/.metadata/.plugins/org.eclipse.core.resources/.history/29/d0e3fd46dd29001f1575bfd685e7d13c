@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<form name="frmfaleconosco" method="post" action="#">
+		<fieldset>
+			<legend>Contato</legend>
+			<table>
+				<tr>
+					<td>Nome:</td>
+					<td><input type="text"></input></td>
+				</tr>
+				<tr>
+					<td>Endereço:</td>
+					<td><input type="text"></input></td>
+				</tr>
+				<tr>
+					<td>Telefone:</td>
+					<td><input type="fone" placeholder="Ex: (xx)xxxxx-xxxx"></input></td>
+				</tr>
+				<tr>
+					<td><input type="submit"></input></td>
+					<td><input type="reset" value="Limpar"></input></td>
+				</tr>	
+			</table>
+		</fieldset>
+	</form>
+</body>
+</html>

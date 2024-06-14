@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<form name="frmcontato" method="post" action="#">
+		<fieldset>
+			<legend>Contato</legend>
+			<table>
+				<tr>
+					<td>Nome:</td>
+					<td><input type="text" name="nometxt" required></input></td>
+				</tr>
+				<tr>
+					<td>Endereço:</td>
+					<td><input type="text" name="enderecotxt"></input></td>
+				</tr>
+				<tr>
+					<td>Telefone:</td>
+					<td><input type="text" name="fonetxt" placeholder="Ex: (xx)xxxxx-xxxx"></input></td>
+				</tr>
+				<tr>
+					<td><input type="submit"></input></td>
+					<td><input type="reset" value="Limpar"></input></td>
+				</tr>	
+			</table>
+		</fieldset>
+	</form>
+</body>
+
+<script>
+
+	function validaContato(){
+		if(document.forms["frmcontato"]["nometxt"].value == ""){
+		    alert("Preencha o campo Nome.");
+		    document.frmcontato.nometxt.focus();
+		    return false;
+		}
+		return true;
+	}
+
+
+
+</script>
+
+</html>

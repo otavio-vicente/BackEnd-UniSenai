@@ -1,0 +1,25 @@
+package br.com.gcontato.servlet;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class AdicionaContatoServlet extends HttpServlet {
+
+	@Override
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response)
+		throws ServletException, IOException{
+		
+	}
+	
+	/*
+ 	Destaque para o @Override, que indica que estamos sobrescrevendo o método service
+	da classe mãe HttpServlet.
+	Repare que o método service recebe dois objetos, request e response, que representam,
+	respectivamente, a requisição feita pelo usuário e a resposta que será criada por nós e
+	enviada ao lado cliente.
+	 */
+	
+}

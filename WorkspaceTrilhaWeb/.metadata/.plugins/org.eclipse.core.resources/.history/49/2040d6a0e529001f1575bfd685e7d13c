@@ -1,0 +1,6 @@
+package br.com.gcontato.servlet;
+import javax.servlet.http.HttpServlet;
+
+public class AdicionaContatoServlet extends HttpServlet {
+
+}

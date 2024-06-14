@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang= "pt-br" >
+<head>
+<meta charset="UTF-8">
+<meta name= "description" content="Site da Coldogo Geladeiras">
+<meta name= "Keywords" content="Geladeiras, Frost-free, Refrigeração">
+<meta name="author" content= "Escola Sistêmica">
+<meta name= "viewport" content= "widht=device-widht, initial-scale=1.0">
+<title>Fale Conosco</title>
+<link rel="stylesheet" type="text/css" href="/ProjetoTrilhaWeb10/css/site.css">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script src="../../js/site.js"></script>
+</head>
+<body>
+	<header>
+ 	</header>
+	<nav>
+	</nav>
+	<section>
+		<h2>Fale conosco!</h2>
+		<p>Ficou com alguma dúvida? Preencha este formulário e entraremos em contato!</p>
+		<form name="frmfaleconosco" method="get" action="#" onsubmit="return validaFaleConosco()">
+			<fieldset class="faleConosco">
+				<legend>Dados pessoais:</legend>
+				<label for="nome">Nome:</label>
+				<input type="text" name="txtnome" id="nome"><br>
+				<label for="fone">Telefone:</label>
+				<input type="text" name="txtfone" id="fone" placeholder="Ex: (xx)xxxxx-xxxx"><br>
+				<label for="email">E-mail:</label>
+				<input type="email" name="txtmail" id="email"><br>
+			</fieldset>
+			<fieldset class="faleConosco">
+				<legend>Motivo do contato:</legend>
+				<label for="motivo">Motivo:</label>
+				<select name="selemotivo" id="motivo" onchange="verificaMotivo(this.value)" onchange="verificaReclamacao(this.value)">
+					<option value="">Escolha</option>
+					<option value="RE">Reclamação</option>
+					<option value="SU">Sugestão</option>
+					<option value="PR">informação sobre produto</option>
+				</select>
+				<div id="opcaoProduto"></div>
+				<label for="comentario">Comentário:</label>
+				<textarea name="txacomentario" id="comentario"></textarea>
+				<button type="reset" onclick="vericaMotivo(null)">Limpar</button><button type="submit">Enviar</button>
+			</fieldset>
+		</form>
+	</section>
+	<footer></footer>
+</body>
+</html>

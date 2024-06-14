@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*PALETA DE CORES (se necesssário)
+
+#14281D Verde mais escuro	
+#355834	Verde mais claro
+#6E633D Marrom mais escuro
+#C2A878 Marrom mais claro
+#F1F5F2 Branco - fundo
+
+*/
+
+body {
+	background-color: #F1F5F2;
+	margin: 0;
+	padding:0;
+}
+
+fieldset {
+	background-color: #14281D;
+	color: #F1F5F2;
+	border-radius: 15px;
+	margin: 0;
+	padding: 20px;
+}
+
+legend {
+	padding:10px;
+	background-color: #355834;
+	border-radius: 15px;
+}
