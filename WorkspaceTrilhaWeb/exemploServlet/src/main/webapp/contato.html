@@ -7,23 +7,21 @@
 <script>
 
 	function validaContato(){
-		if(document.frmcontato.nometxt.value==""){
+		if(document.frmcontato.nome.value==""){
 		    alert("Preencha o campo Nome.");
-		    document.frmcontato.nometxt.focus();
+		    document.frmcontato.nome.focus();
 		    return false;
-		} else if(document.frmcontato.enderecotxt.value==""){
+		} else if(document.frmcontato.endereco.value==""){
 		    alert("Preencha o campo Endereço.");
-		    document.frmcontato.enderecotxt.focus();
+		    document.frmcontato.endereco.focus();
 		    return false;
-		} else if(document.frmcontato.fonetxt.value==""){
+		} else if(document.frmcontato.fone.value==""){
 		    alert("Preencha o campo Telefone.");
-		    document.frmcontato.fonetxt.focus();
+		    document.frmcontato.fone.focus();
 		    return false;
 		}
 		return true; 
 	}
-
-
 
 </script>
 </head>
@@ -34,15 +32,15 @@
 			<table>
 				<tr>
 					<td><label>Nome:</label></td>
-					<td><input type="text" name="nometxt"></input></td>
+					<td><input type="text" name="nome"></input></td>
 				</tr>
 				<tr>
 					<td><label>Endereço:</label></td>
-					<td><input type="text" name="enderecotxt"></input></td>
+					<td><input type="text" name="endereco"></input></td>
 				</tr>
 				<tr>
 					<td><label>Telefone:</label></td>
-					<td><input type="text" name="fonetxt" placeholder="Ex: (xx)xxxxx-xxxx"></input></td>
+					<td><input type="text" name="fone" placeholder="Ex: (xx)xxxxx-xxxx"></input></td>
 				</tr>
 				<tr>
 					<td><input type="submit"></input></td>

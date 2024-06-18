@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlets</title>
+<link href="./style.css" rel="stylesheet" type="text/css">
+<script>
+
+	function validaContato(){
+		if(document.frmcontato.nome.value==""){
+		    alert("Preencha o campo Nome.");
+		    document.frmcontato.nometxt.focus();
+		    return false;
+		} else if(document.frmcontato.endereco.value==""){
+		    alert("Preencha o campo Endereço.");
+		    document.frmcontato.enderecotxt.focus();
+		    return false;
+		} else if(document.frmcontato.fone.value==""){
+		    alert("Preencha o campo Telefone.");
+		    document.frmcontato.fonetxt.focus();
+		    return false;
+		}
+		return true; 
+	}
+
+
+
+</script>
+</head>
+<body>
+	<form name="frmcontato" method="post" action="insereContato" onsubmit="return validaContato()">
+		<fieldset>
+			<legend>Contato</legend>
+			<table>
+				<tr>
+					<td><label>Nome:</label></td>
+					<td><input type="text" name="nome"></input></td>
+				</tr>
+				<tr>
+					<td><label>Endereço:</label></td>
+					<td><input type="text" name="endereco"></input></td>
+				</tr>
+				<tr>
+					<td><label>Telefone:</label></td>
+					<td><input type="text" name="fone" placeholder="Ex: (xx)xxxxx-xxxx"></input></td>
+				</tr>
+				<tr>
+					<td><input type="submit"></input></td>
+					<td><input type="reset" value="Limpar"></input></td>
+				</tr>	
+			</table>
+		</fieldset>
+	</form>
+</body>
+
+</html>
