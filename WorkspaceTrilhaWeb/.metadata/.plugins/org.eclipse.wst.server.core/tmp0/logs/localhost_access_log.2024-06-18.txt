@@ -1,1 +1,6 @@
-127.0.0.1 - - [18/Jun/2024:18:57:10 -0300] "GET / HTTP/1.1" 404 1036
+127.0.0.1 - - [18/Jun/2024:21:34:32 -0300] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [18/Jun/2024:21:34:47 -0300] "GET /exemploServlet/contato.html HTTP/1.1" 404 1063
+0:0:0:0:0:0:0:1 - - [18/Jun/2024:21:34:49 -0300] "GET /exemploServlet/contato.html HTTP/1.1" 404 1063
+0:0:0:0:0:0:0:1 - - [18/Jun/2024:21:34:49 -0300] "GET /favicon.ico HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [18/Jun/2024:21:35:26 -0300] "GET /exemploServlet/contato.html HTTP/1.1" 404 1063
+0:0:0:0:0:0:0:1 - - [18/Jun/2024:21:35:28 -0300] "GET /exemploServlet/contato.html HTTP/1.1" 404 1063

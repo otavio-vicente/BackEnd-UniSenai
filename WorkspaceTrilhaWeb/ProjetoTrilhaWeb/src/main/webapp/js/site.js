@@ -148,10 +148,11 @@ function verificaMotivo(motivo){
 }
 
 //Assim que o documento HTML for carregada por completo...
-$(document).ready(function(){
-    //Carrega cabeçalho, menu e rodapé aos respectivos
-    $("header").load("ProjetoTrilhaWeb/pages/site/general/cabecalho.html");
-    $("nav").load("ProjetoTrilhaWeb/pages/site/general/menu.html");
-    $("footer").load("ProjetoTrilhaWeb/pages/site/general/rodape.html");
-});
+
+$(document).ready(function() {
+    $("header").load("/ProjetoTrilhaWeb/pages/site/general/cabecalho.html");
+    $("nav").load("/ProjetoTrilhaWeb/pages/site/general/menu.html");
+    $("footer").load("/Pro/pages/site/general/rodape.html");
+})
+
 

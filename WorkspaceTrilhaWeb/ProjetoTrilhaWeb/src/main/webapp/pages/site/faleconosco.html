@@ -2,50 +2,63 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Site da Coldigo Geladeiras">
+    <meta name="keywords" content="Geladeiras, Frost-free, Refrigeração">
+    <meta name="author" content="Escola Sistêmica">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coldigo Geladeiras</title>
-    <link href="../../css/site.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../css/site.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../../js/site.js"></script>
 </head>
 <body>
     <header>
-        <img src = "../../imgs/logo.png" alt="Logo da Coldigo Geladeiras">
-        <h1>Coldigo Geladeiras</h1>
-    </header>
+    </header> 
+
     <nav>
-        <a href="../../index.html"><div class="opcao">Inicio</div></a>
-        <a href="../../pages/site/produtos.html"><div class="opcao">Produtos</div></a>
-        <a href="../../pages/site/faleconosco.html"><div class="opcao">Fale Conosco</div></a>
-    </nav>
+    </nav> 
+
     <section>
-        <h2>Fale Conosco!</h2>
-        <p>Ficou alguma duvida ? Preencha este formulario e entraremos em contato!</p>
-        <form name="frmfaleconosco" method="post" action="#">
+        <h2>Fale conosco!</h2>
+        <p>Ficou com alguma duvida? Preencha este formulário e entraremos em contato!</p>
+        <form action="#" method="get" name="fmrfaleconosco" onsubmit="return validaFaleConosco()"> <!--Utilizar metodo post-->
             <fieldset class="faleConosco">
-                <legend>Dados Pessoais</legend>
-                <label for="nome">Nome: </label>
-                <input type="text" name="txtnome" id="nome">
-                <label for="fone">Telefone: </label>
-                <input type="text" name="txtfone" id="fone">
-                <label for="email">Email: </label>
-                <input type="email" name="txtemail" id="email">
+
+                <fieldset>
+                    <legend>Dados pessoais:</legend>
+
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="txtnome" id="nome">
+
+                    <label for="fone">Telefone: </label>
+                    <input type="text" name="txtfone" id="fone">
+
+                    <label for="email">E-mail: </label>
+                    <input type="text" name="txtemail" id="email">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Motivo do contato:</legend>
+
+                    <label for="motivo">Motivo: </label>
+                    <select name="selmotivo" id="motivo" onchange="verificarMotivo(this.value)">
+                        <option value="">Escolha</option>
+                        <option value="RE">Reclamação</option>
+                        <option value="SU">Sugestão</option>
+                        <option value="PR">Informação sobre produto</option>
+                    </select>
+                    <label for="comentario">Comentário: </label>
+                    <div id="opcaoProduto"></div>
+                    <textarea name="textcomentario" id="comentario"></textarea>
+                    <button type="reset" onclick="verificarMotivo(null)">Limpar</button><button type="submit">Enviar</button>
+                </fieldset>
+
             </fieldset>
 
-            <fieldset class="faleConosco">
-                <legend class="tituloFormMotivo">Motivo do contato:</legend>
-                <label for="Motivo">Motivo: </label>
-                <select name="selmotivo" id="Motivo">
-                    <option value="">Escolha um motivo</option>
-                    <option value="RE">Reclamação</option>
-                    <option value="SU">Sugestão</option>
-                    <option value="PR">Informção sobre produto</option>
-                </select>
-                <label for="comentario">Comentário: </label>
-                <textarea name="txacomentario" id="comentario"></textarea>
-                <button type="reset">Limpar</button><button type="submit">Enviar</button>
-            </fieldset>
 
         </form>
     </section>
-    <footer>Copyright &copy; Escola Sistêmica 2019</footer>
+    <footer>Copyright &copy; Escola Sistêmica 2024</footer>
+
 </body>
 </html>

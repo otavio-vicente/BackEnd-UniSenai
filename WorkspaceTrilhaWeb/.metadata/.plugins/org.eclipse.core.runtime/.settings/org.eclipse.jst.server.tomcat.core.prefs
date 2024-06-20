@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 locationorg.eclipse.jst.server.tomcat.runtime.70=C\:/apache-tomcat-7.0.92
-locationorg.eclipse.jst.server.tomcat.runtime.85=C\:/Users/otavio_vicente/Documents/apache-tomcat-8.5.78
+locationorg.eclipse.jst.server.tomcat.runtime.85=C\:/apache-tomcat-8.5.50/apache-tomcat-8.5.78
+locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/Users/otavio_vicente/Downloads/apache-tomcat-9.0.88
