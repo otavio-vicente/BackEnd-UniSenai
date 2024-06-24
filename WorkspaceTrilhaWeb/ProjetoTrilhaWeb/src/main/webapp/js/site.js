@@ -152,7 +152,7 @@ function verificaMotivo(motivo){
 $(document).ready(function() {
     $("header").load("/ProjetoTrilhaWeb/pages/site/general/cabecalho.html");
     $("nav").load("/ProjetoTrilhaWeb/pages/site/general/menu.html");
-    $("footer").load("/Pro/pages/site/general/rodape.html");
+    $("footer").load("/ProjetoTrilhaWeb/pages/site/general/rodape.html");
 })
 
 
