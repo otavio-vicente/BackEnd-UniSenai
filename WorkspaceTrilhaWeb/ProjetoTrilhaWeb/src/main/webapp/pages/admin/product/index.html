@@ -1,0 +1,50 @@
+<h2>Registro de produtos</h2>
+<form name="frmAddProduto" id="addProduto" class="frmInserir">
+	<fieldset>
+		<legend>Novo produto</legend>
+		<table>
+			<tr>
+				<th>Categoria</th>
+				<td>
+					<select name="categoria">
+						<option value="">Selecione</option>
+						<option value="1">Geladeira</option>
+						<option value="2">Freezer</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Marca</th>
+				<td>
+					<select name="marcaId" id="selMarca">
+						<option value="" class="buscando">Aguarde, buscando marcas...</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Modelo</th>
+				<td>
+					<input type="text" name="modelo">
+				</td>
+			</tr>
+			<tr>
+				<th>Capacidade(1)</th>
+				<td>
+					<input type="text" name="capacidade">
+				</td>
+			</tr>
+			<tr>
+				<th>Valor (R$)</th>
+				<td>
+					<input type="text" name="valor">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button">Cadastrar</button>
+					<button type="reset">Limpar</button>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
