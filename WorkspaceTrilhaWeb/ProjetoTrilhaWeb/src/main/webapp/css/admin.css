@@ -95,6 +95,11 @@ footer {
 	padding: 10px;
 }
 
+/********** Modais **********/
+#modalAviso {
+	display: none;
+}
+
 /*********************************
 		Layout CRUDs
 **********************************/

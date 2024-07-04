@@ -2,9 +2,10 @@
 COLDIGO = new Object();
 
 $(document).ready(function() {
+	COLDIGO.PATH = "/ProjetoTrilhaWeb/rest/";
 	$("header").load("/ProjetoTrilhaWeb/pages/admin/general/header.html");
 	$("footer").load("/ProjetoTrilhaWeb/pages/admin/general/footer.html");
-	
+		
 	//Função para carregamento de páginas de conteúdo, que
 	//recebe como parâmetro o nome da pasta com a página a ser carregada
 	COLDIGO.carregaPagina = function(pagename){
@@ -17,6 +18,23 @@ $(document).ready(function() {
 				$("section").html(msg);
 			}
 		})
+	};
+	
+	//Define as configuracoes base de uma modal de aviso
+	COLDIGO.exibirAviso = function(aviso){
+		var modal = {
+			title: "Mensagem",
+			height: 250,
+			width: 400,
+			modal: true,
+			buttons:{
+				"OK": function(){
+					$(this).dialog("close");
+				}
+			}
+		};
+		$("#modalAviso").html(aviso);
+		$("#modalAviso").dialog(modal);
 	}
 	
 	
