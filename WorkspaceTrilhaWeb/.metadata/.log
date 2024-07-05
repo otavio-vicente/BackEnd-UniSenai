@@ -11420,3 +11420,21 @@ org.eclipse.swt.SWTException: Não é possível obter a propriedade 'scrollWidth
 
 !ENTRY org.eclipse.lsp4e 1 0 2024-07-04 19:53:11.287
 !MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 20:28:01.066
+!MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 20:28:01.207
+!MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 20:30:29.635
+!MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 20:30:31.195
+!MESSAGE [Info]	[lspserver] Using Typescript version (bundled) 4.9.3 from path "C:\eclipse\plugins\org.eclipse.wildwebdeveloper_1.0.1.202211171559\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 20:48:24.731
+!MESSAGE [Info]	ESLint server running in node v18.12.1
+
+!ENTRY org.eclipse.lsp4e 1 0 2024-07-04 21:06:55.225
+!MESSAGE [Info]	ESLint server running in node v18.12.1
