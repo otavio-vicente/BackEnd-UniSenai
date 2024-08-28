@@ -106,7 +106,7 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	public boolean deletar(int id) {
 		String comando = "DELETE FROM produtos WHERE id = ?";
 		PreparedStatement p;
-		
+				
 		try {
 			p = this.conexao.prepareStatement(comando);
 			p.setInt(1, id);
@@ -118,6 +118,33 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 		}
 		return true;
 		
+	}
+	
+	public Produto buscarPorId(int id) {
+		String comando = "SELECT * FROM produtos WHERE produtos.id = ?";
+		Produto produto = new Produto();
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			p.setInt(1, id);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				String categoria = rs.getString("categoria");
+				String modelo = rs.getString("modelo");
+				int capacidade = rs.getInt("capacidade");
+				float valor = rs.getFloat("valor");
+				int marcaId = rs.getInt("marcas_id");
+				
+				produto.setId(id);
+				produto.setCategoria(categoria);
+				produto.setMarcaId(marcaId);
+				produto.setModelo(modelo);
+				produto.setCapacidade(capacidade);
+				produto.setValor(valor);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return produto;
 	}
 	
 }

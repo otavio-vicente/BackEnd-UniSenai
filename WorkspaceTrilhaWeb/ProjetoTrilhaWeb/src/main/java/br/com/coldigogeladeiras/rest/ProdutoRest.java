@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.websocket.server.PathParam;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -80,40 +81,11 @@ public class ProdutoRest extends UtilRest {
 		}
 	}
 	
-//	@DELETE
-//	@Path("/excluir/{id}")
-//	@Consumes("application/*")
-//	public Response excluir(@PathParam("id") int id) {
-//		try {
-//			Conexao conec = new Conexao();
-//			Connection conexao = conec.abrirConexao();
-//			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
-//			
-//			boolean retorno = jdbcProduto.deletar(id);
-//			
-//			String msg = "";
-//			if(retorno) {
-//				msg = "Produto excluído com sucesso!";
-//			} else {
-//				msg = "Erro ao excluir produto."; 
-//			}
-//			
-//			conec.fecharConexao();
-//			
-//			return this.buildResponse(msg);
-//			
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//			return this.buildErrorResponse(e.getMessage());
-//		}
-//	}
 	@DELETE
 	@Path("/excluir/{id}")
 	@Consumes("application/*")
 	public Response excluir(@PathParam("id") int id) {
-		
 		try {
-			
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
@@ -124,17 +96,40 @@ public class ProdutoRest extends UtilRest {
 			if(retorno) {
 				msg = "Produto excluído com sucesso!";
 			} else {
-				msg = "Erro ao excluir produto.";
+				msg = "Erro ao excluir produto."; 
 			}
 			
 			conec.fecharConexao();
+			
 			return this.buildResponse(msg);
 			
-					
-		}catch(Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}
-		//fim função de deletar;
+	}
+
+	@GET
+	@Path("/buscarPorId")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorId(@QueryParam("id") int id) {
+		
+		try {
+			Produto produto = new Produto();
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCProdutoDAO jdbcProduto = new JDBCProdutoDAO(conexao);
+			
+			produto = jdbcProduto.buscarPorId(id);
+			
+			conec.fecharConexao();
+			
+			return this.buildResponse(produto);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+		
 	}
 }
