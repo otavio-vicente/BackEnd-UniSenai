@@ -26,7 +26,7 @@ $(document).ready(function(){
 					for(var i = 0; i < marcas.length; i++) {
 						
 						var option = document.createElement("option");
-						//alert(marcas[i].id);
+					
 						option.setAttribute("value", marcas[i].id);
 						
 						if((id!=undefined)&&(id==marcas[i].id)) {
@@ -86,7 +86,6 @@ $(document).ready(function(){
 			success: function (msg) {
 				COLDIGO.exibirAviso(msg);
 				$("#addProduto").trigger("reset");
-				
 			},
 			error: function (error) {
 				COLDIGO.exibirAviso("Erro ao cadastrar um novo produto: "+ error.status + " - "+ error.statusText);
@@ -159,7 +158,6 @@ $(document).ready(function(){
 	
 	//Exclui o produto selecionado
 	COLDIGO.produto.excluir = function(id) {
-		alert(COLDIGO.PATH + "produto/excluir/"+id);
 		$.ajax({
 			type: "DELETE",
 			url: COLDIGO.PATH + "produto/excluir/"+id,

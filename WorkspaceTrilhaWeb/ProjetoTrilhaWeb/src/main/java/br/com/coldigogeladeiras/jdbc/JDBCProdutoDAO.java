@@ -148,12 +148,14 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 	}
 	
 	public boolean alterar(Produto produto) {
+		
 		String comando = "UPDATE produtos "
-				+ "SET categoria=?, modelo=?, capacidade=?, valor=?, marcas_id=?"
-				+ "WHERE id=?";
+				+" SET categoria=?, modelo=?, capacidade=?, valor=?, marcas_id=?"
+				+" WHERE id=?";
 		PreparedStatement p;
 		
 		try {
+			
 			p = this.conexao.prepareStatement(comando);
 			p.setString(1, produto.getCategoria());
 			p.setString(2, produto.getModelo());
@@ -162,12 +164,17 @@ public class JDBCProdutoDAO implements ProdutoDAO {
 			p.setInt(5, produto.getMarcaId());
 			p.setInt(6, produto.getId());
 			p.executeUpdate();
-		} catch(Exception e) {
+			
+			
+		}catch(SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
-		return true; 
+		return true;
+		
+		
 	}
+	
 	
 }
 
