@@ -86,6 +86,8 @@ $(document).ready(function(){
 			success: function (msg) {
 				COLDIGO.exibirAviso(msg);
 				$("#addProduto").trigger("reset");
+				COLDIGO.produto.buscar();
+
 			},
 			error: function (error) {
 				COLDIGO.exibirAviso("Erro ao cadastrar um novo produto: "+ error.status + " - "+ error.statusText);

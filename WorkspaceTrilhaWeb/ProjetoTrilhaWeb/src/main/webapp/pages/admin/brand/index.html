@@ -24,13 +24,26 @@
 </form>
 
 <h3>Marcas registradas</h3>
-<form id="filtraMarca" class="frmFiltrar">
-	<fieldset>
-		<legend>Filtrar</legend>
-		<input type="text" name="txtbusca" id="campoBuscaMarca" placeholder="Pesquise pelo nome">
-		<button type="button" onclick="COLDIGO.marca.buscar()">Buscar</button>
-	</fieldset>
-</form>
-
-<div id="listaMarcas" class="listaRegistros">
+	<form id="filtraMarca" class="frmFiltrar">	
+		<fieldset>
+			<legend>Filtrar</legend>
+			<input type="text" name="txtbusca" id="campoBuscaMarca" placeholder="Pesquise pelo nome">
+			<button type="button" onclick="COLDIGO.marca.buscar()">Buscar</button>
+		</fieldset>
+	</form>
+	
+<div id="listaMarcas" class="listaRegistros"></div>
+	
+<div id="modalEditaMarca" class="modalEditar">
+	<form name="frmEditaMarca" id="editaMarca" class="frmEditar">
+		<table>
+			<tr>
+				<th>Marca</th>
+				<td>
+					<input type="text" name="novaMarca" id="novaMarca">
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="idProduto">
+	</form>
 </div>
