@@ -30,17 +30,42 @@ import br.com.coldigogeladeiras.modelo.Produto;
 @Path("marca")
 public class MarcaRest extends UtilRest {
 
+	/*
+	 * @GET
+	 * 
+	 * @Path("/buscar")
+	 * 
+	 * @Consumes("application/*")
+	 * 
+	 * @Produces(MediaType.APPLICATION_JSON) public Response
+	 * buscarPorNome(@QueryParam("valorBusca") String nome) { try { List<JsonObject>
+	 * listaMarcas = new ArrayList<JsonObject>();
+	 * 
+	 * System.out.println("teste");
+	 * 
+	 * Conexao conec = new Conexao(); Connection conexao = conec.abrirConexao();
+	 * JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao); listaMarcas =
+	 * jdbcMarca.buscarPorNome(nome); conec.fecharConexao();
+	 * 
+	 * String json = new Gson().toJson(listaMarcas); return
+	 * this.buildResponse(json);
+	 * 
+	 * }catch(Exception e){ e.printStackTrace(); return
+	 * this.buildErrorResponse(e.getMessage()); } }
+	 */
+	
 	@GET
 	@Path("/buscar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscar() {
+	public Response buscar(@QueryParam("valorBusca") String nome) {
 		
 		try {
-			List<Marca> listaMarcas = new ArrayList<Marca>();
+			List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
-			listaMarcas = jdbcMarca.buscar();
+			//listaMarcas = jdbcMarca.buscar();
+			listaMarcas = jdbcMarca.buscarPorNome(nome);
 			conec.fecharConexao();
 			return this.buildResponse(listaMarcas);
 		
@@ -80,28 +105,6 @@ public class MarcaRest extends UtilRest {
 		}
 	}
 	
-	@GET
-	@Path("/buscar")
-	@Consumes("application/*")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
-		try {
-			List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
-			
-			Conexao conec = new Conexao();
-			Connection conexao = conec.abrirConexao();
-			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
-			listaMarcas = jdbcMarca.buscarPorNome(nome);
-			conec.fecharConexao();
-			
-			String json = new Gson().toJson(listaMarcas);
-			return this.buildResponse(json);
-			
-		}catch(Exception e){
-			e.printStackTrace();
-			return this.buildErrorResponse(e.getMessage());
-		}
-	}
 	
 	@DELETE
 	@Path("/excluir/{id}")
@@ -113,12 +116,12 @@ public class MarcaRest extends UtilRest {
 			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
 			
 			boolean retorno = jdbcMarca.deletar(id);
-			
+						
 			String msg = "";
 			if(retorno) {
 				msg = "Marca excluída com sucesso!";
 			} else {
-				msg = "Erro ao excluir produto."; 
+				msg = "Erro ao excluir marca."; 
 			}
 			
 			conec.fecharConexao();
@@ -136,18 +139,18 @@ public class MarcaRest extends UtilRest {
 	@Consumes("application/*")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response buscarPorId(@QueryParam("id") int id) {
-		
+			
 		try {
-			Marca marca = new Marca();
+			Marca marcaNova = new Marca();
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
 			
-			marca = jdbcMarca.buscarPorId(id);
+			marcaNova = jdbcMarca.buscarPorId(id);
 			
 			conec.fecharConexao();
 			
-			return this.buildResponse(marca);
+			return this.buildResponse(marcaNova);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
@@ -156,16 +159,16 @@ public class MarcaRest extends UtilRest {
 	}
 	
 	@PUT
-	@Path("/alterar")
+	@Path("/alterar/{id}")
 	@Consumes("application/*")
-	public Response alterar(String marcaParam) {
+	public Response alterar(@PathParam("id") int id, String marcaParam  ) {
+		
 		try {
 			Marca marca = new Gson().fromJson(marcaParam, Marca.class);
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCMarcaDAO jdbcMarca = new JDBCMarcaDAO(conexao);
-			
-			boolean retorno = JDBCMarcaDAO.alterar(marca);
+			boolean retorno = jdbcMarca.alterar(marca , id);
 			
 			String msg="";
 			if(retorno) {

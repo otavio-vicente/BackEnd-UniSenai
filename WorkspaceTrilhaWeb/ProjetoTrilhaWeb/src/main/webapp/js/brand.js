@@ -88,7 +88,6 @@ $(document).ready(function(){
 			success: function (msg) {
 				
 				COLDIGO.exibirAviso(msg);
-				COLDIGO.marca.buscar();
 				
 			},
 			error: function (error) {
@@ -103,10 +102,8 @@ $(document).ready(function(){
 			url: COLDIGO.PATH + "marca/buscarPorId",
 			data: "id="+id,
 			success: function(marca){
-				
+							
 				document.frmEditaMarca.novaMarca.value = marca.nome;
-				
-				COLDIGO.marcas.carregarMarcas(id);
 				
 				var modalEditaMarca = {
 					title: "Editar Marca",
@@ -115,7 +112,7 @@ $(document).ready(function(){
 					modal: true,
 					buttons:{
 						"Salvar": function(){
-							COLDIGO.marca.editar();
+							COLDIGO.marca.editar(id);
 						},
 						"Cancelar": function(){
 							$(this).dialog("close");
@@ -136,14 +133,14 @@ $(document).ready(function(){
 		});
 	};
 	
-	COLDIGO.marca.editar = function(){
+	COLDIGO.marca.editar = function(id){
 		
 		var marca = new Object();
 		marca.nome = document.frmEditaMarca.novaMarca.value;
 				
 		$.ajax({
 			type: "PUT",
-			url: COLDIGO.PATH + "marca/alterar",
+			url: `${COLDIGO.PATH}marca/alterar/${id}`,
 			data: JSON.stringify(marca),
 			success: function(msg){
 				COLDIGO.exibirAviso(msg);

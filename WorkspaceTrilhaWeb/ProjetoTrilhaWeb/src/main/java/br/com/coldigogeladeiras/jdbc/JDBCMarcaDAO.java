@@ -94,8 +94,8 @@ public class JDBCMarcaDAO implements MarcaDAO {
 		return true;
 	}
 	
-public List<JsonObject> buscarPorNome(String nome){
-		
+	public List<JsonObject> buscarPorNome(String nome){
+				
 		String comando = "SELECT * FROM marcas ";
 		
 		if(!nome.equals("")) {
@@ -103,9 +103,7 @@ public List<JsonObject> buscarPorNome(String nome){
 		}
 		
 		comando += " ORDER BY id ASC";
-		
-		System.out.println(comando);
-		
+				
 		List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
 		JsonObject marca = null;
 		
@@ -133,10 +131,11 @@ public List<JsonObject> buscarPorNome(String nome){
 	public boolean deletar(int id) {
 		String comando = "DELETE FROM marcas WHERE id = ?";
 		PreparedStatement p;
-				
+						
 		try {
 			p = this.conexao.prepareStatement(comando);
 			p.setInt(1, id);
+			
 			p.execute();
 			
 		}catch(SQLException e){
@@ -154,35 +153,37 @@ public List<JsonObject> buscarPorNome(String nome){
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 			p.setInt(1, id);
 			ResultSet rs = p.executeQuery();
+			
+
+			
 			while(rs.next()) {
 				int idMarca = rs.getInt("id");
-				String nomeMarca = rs.getString("marca");
-				int capacidade = rs.getInt("capacidade");
-				float valor = rs.getFloat("valor");
-				int marcaId = rs.getInt("marcas_id");
+				String nomeMarca = rs.getString("nome");
 				
 				marca.setId(idMarca);
-				marca.setNome(nomeMarca);
+				marca.setNome(nomeMarca);				
 	
 			}
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return marca;
 	}
 	
-	public boolean alterar(Marca marca) {
+	public boolean alterar(Marca marca, int id ) {
 		
 		String comando = "UPDATE marcas "
-				+" SET id=?, nome=?"
+				+" SET nome=?"
 				+" WHERE id=?";
 		PreparedStatement p;
 		
 		try {
 			
 			p = this.conexao.prepareStatement(comando);
-			p.setInt(1, marca.getId());
-			p.setString(2, marca.getNome());
+			p.setString(1, marca.getNome());
+			p.setInt(2, id);
+						
 			p.executeUpdate();
 			
 		}catch(SQLException e) {
