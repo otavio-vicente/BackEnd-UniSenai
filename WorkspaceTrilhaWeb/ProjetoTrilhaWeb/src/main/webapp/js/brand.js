@@ -88,10 +88,11 @@ $(document).ready(function(){
 			success: function (msg) {
 				
 				COLDIGO.exibirAviso(msg);
+				COLDIGO.marca.buscar();
 				
 			},
 			error: function (error) {
-				COLDIGO.exibirAviso("Erro ao excluir as marcas: "+ error.status + " - "+ error.statusText);
+				COLDIGO.exibirAviso("Erro ao excluir a marca: "+ error.status + " - "+ error.statusText);
 			}
 		}); 
 	};

@@ -24,10 +24,10 @@ public class JDBCMarcaDAO implements MarcaDAO {
 		this.conexao = conexao;
 	}
 	
-	public List<Marca> buscar() {
+public List<Marca> buscar() {
 		
 		//Criação da instrução SQL para busca de todas as marcas;
-		String comando = "SELECT * FROM bdcoldigo.marcas";
+		String comando = "SELECT * FROM marcas";
 		
 		//Criação de uma lista para armazenar cada marca encontradas;
 		List<Marca> listMarcas = new ArrayList<Marca>();
@@ -62,8 +62,8 @@ public class JDBCMarcaDAO implements MarcaDAO {
 			
 			
 				
-		}catch (Exception e){
-			e.printStackTrace();
+		}catch (Exception ex){
+			ex.printStackTrace();
 		}
 		
 		//retorna para quem chamou o método a lista criada
@@ -95,7 +95,9 @@ public class JDBCMarcaDAO implements MarcaDAO {
 	}
 	
 	public List<JsonObject> buscarPorNome(String nome){
-				
+	
+		System.out.println("entrou jdbc");
+		
 		String comando = "SELECT * FROM marcas ";
 		
 		if(!nome.equals("")) {
@@ -103,7 +105,9 @@ public class JDBCMarcaDAO implements MarcaDAO {
 		}
 		
 		comando += " ORDER BY id ASC";
-				
+		
+		System.out.println(comando);
+		
 		List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
 		JsonObject marca = null;
 		
@@ -129,21 +133,31 @@ public class JDBCMarcaDAO implements MarcaDAO {
 	}
 
 	public boolean deletar(int id) {
-		String comando = "DELETE FROM marcas WHERE id = ?";
-		PreparedStatement p;
-						
-		try {
-			p = this.conexao.prepareStatement(comando);
-			p.setInt(1, id);
-			
-			p.execute();
-			
-		}catch(SQLException e){
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-		
+	    String verifyDeleteMarca = "SELECT COUNT(*) FROM produtos WHERE marcas_id = ?";
+	    String comando = "DELETE FROM marcas WHERE id = ?";
+	    PreparedStatement p;
+	    
+	    try {
+	       
+	        p = this.conexao.prepareStatement(verifyDeleteMarca);
+	        p.setInt(1, id);
+	        ResultSet resultSet = p.executeQuery();
+	        if (resultSet.next()) {
+	            int count = resultSet.getInt(1);
+	            if (count > 0) {
+	                System.out.println("Existem produtos associados a esta marca. Não é possível deletar.");
+	                return false;
+	            }
+	        }
+	        
+	        p = this.conexao.prepareStatement(comando);
+	        p.setInt(1, id);
+	        p.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	    return true;
 	}
 	
 	public Marca buscarPorId(int id) {
