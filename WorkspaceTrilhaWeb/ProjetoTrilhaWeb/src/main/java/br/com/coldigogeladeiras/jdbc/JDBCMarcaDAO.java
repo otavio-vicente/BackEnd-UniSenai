@@ -95,8 +95,8 @@ public List<Marca> buscar() {
 	}
 	
 	public List<JsonObject> buscarPorNome(String nome){
-	
-		System.out.println("entrou jdbc");
+		
+		System.out.println(nome);
 		
 		String comando = "SELECT * FROM marcas ";
 		
@@ -105,14 +105,13 @@ public List<Marca> buscar() {
 		}
 		
 		comando += " ORDER BY id ASC";
-		
-		System.out.println(comando);
-		
+				
 		List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
 		JsonObject marca = null;
 		
 		try {
 			Statement stmt = conexao.createStatement();
+			System.out.println(comando);
 			ResultSet rs = stmt.executeQuery(comando);
 			
 			while(rs.next()) {
@@ -122,7 +121,6 @@ public List<Marca> buscar() {
 				marca = new JsonObject();
 				marca.addProperty("id", id);
 				marca.addProperty("nome", name);
-				
 				listaMarcas.add(marca);
 			}
 		}catch(Exception e) {

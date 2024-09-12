@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.json.Json;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import br.com.coldigogeladeiras.bd.Conexao;
@@ -81,15 +82,13 @@ public class MarcaRest extends UtilRest {
 	}
 	
 	@GET
-	@Path("/buscar")
+	@Path("/buscarNome")
 	@Consumes("application/*")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response buscarPorNome(@QueryParam("valorBusca") String nome) {
 		try {
-			
-			System.out.println("entrou rest");
-			
 			List<JsonObject> listaMarcas = new ArrayList<JsonObject>();
+			
 			
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
@@ -97,15 +96,17 @@ public class MarcaRest extends UtilRest {
 			listaMarcas = jdbcMarca.buscarPorNome(nome);
 			conec.fecharConexao();
 			
+			
 			String json = new Gson().toJson(listaMarcas);
+			
 			return this.buildResponse(json);
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
-	
 	
 	@DELETE
 	@Path("/excluir/{id}")

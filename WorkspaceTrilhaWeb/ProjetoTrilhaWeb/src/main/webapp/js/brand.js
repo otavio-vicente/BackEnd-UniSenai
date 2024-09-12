@@ -32,25 +32,42 @@ $(document).ready(function(){
 		
 		var valorBusca = $("#campoBuscaMarca").val();
 		
-		
-		$.ajax({
+		if(valorBusca == ""){
+			$.ajax({
 			type: "GET",
 			url: COLDIGO.PATH + "marca/buscar",
-			data:"valorBusca="+valorBusca,
+			//data:"valorBusca="+valorBusca,
 			success: function (dados) {
-				
+								
 				$("#listaMarcas").html(COLDIGO.marca.exibir(dados));
 				
 			},
 			error: function (error) {
 				COLDIGO.exibirAviso("Erro ao consultar as marcas: "+ error.status + " - "+ error.statusText);
 			}
-		}); 
-		
+			});
+		} else {
+			$.ajax({
+			type: "GET",
+			url: COLDIGO.PATH + "marca/buscarNome",
+			data:"valorBusca="+valorBusca,
+			success: function (dados) {
+				dados = JSON.parse(dados);
+				$("#listaMarcas").html(COLDIGO.marca.exibir(dados));
+				
+			},
+			error: function (error) {
+				COLDIGO.exibirAviso("Erro ao consultar as marcas: "+ error.status + " - "+ error.statusText);
+			}
+			});
+		}
+	
 		
 	};
 		
 	COLDIGO.marca.exibir = function(listaDeMarcas) {
+		console.log(listaDeMarcas);
+		console.log(listaDeMarcas[1])
 		var tabela = "<table>"+
 		"<tr>"+
 		"<th>Nome</th>"+
@@ -60,7 +77,11 @@ $(document).ready(function(){
 		
 		if(listaDeMarcas != undefined && listaDeMarcas.length > 0){
 			
+			
 			for(var i = 0; i<listaDeMarcas.length; i++){
+				
+				
+				
 				tabela += "<tr>" +
 						"<td>"+listaDeMarcas[i].nome+"</td>" +  
 						"<td></td>" +
