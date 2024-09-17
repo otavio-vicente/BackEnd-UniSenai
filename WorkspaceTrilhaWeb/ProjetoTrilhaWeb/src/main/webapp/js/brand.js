@@ -84,7 +84,8 @@ $(document).ready(function(){
 				
 				tabela += "<tr>" +
 						"<td>"+listaDeMarcas[i].nome+"</td>" +  
-						"<td></td>" +
+						"<td>"+
+						"</td>"+
 						"<td>"+
 							"<a onclick=\"COLDIGO.marca.exibirEdicao('"+listaDeMarcas[i].id+"')\"><img src='../../imgs/edit.png' alt='Editar'></a>"+
 							"<a onclick=\"COLDIGO.marca.excluir('"+listaDeMarcas[i].id+"')\"><img src='../../imgs/delete.png' alt='Excluir'></a>"+
